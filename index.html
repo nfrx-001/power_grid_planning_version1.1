@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>电网经营模拟器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div class="side-panel">
+            <div class="left-column">
+                <div class="resources">
+                    <div class="gold">金币: <span id="goldAmount">1000</span></div>
+                    <div class="reputation">信誉值: <span id="reputationPoints">100</span></div>
+                    <div class="power-stats">
+                        <!-- 这里会由JavaScript动态填充电网统计信息 -->
+                    </div>
+                </div>
+                <div class="game-instructions">
+                    <h3>游戏说明</h3>
+                    <div class="instruction-item">
+                        • 拖拽左侧建筑到地图建造
+                    </div>
+                    <div class="instruction-item">
+                        • 点击建筑后再点击另一建筑连线
+                    </div>
+                    <div class="instruction-item">
+                        • 右键点击连线可删除连接
+                    </div>
+                    <div class="instruction-item">
+                        • 按空格键暂停/继续游戏
+                    </div>
+                    <div class="instruction-item">
+                        • 兵工厂将不时出现，其往往耗电量较大，随机消失。给兵工厂通电将补充信誉值
+                    </div>
+                    <div class="instruction-item">
+                        • 地图中浅黄色区域为沙漠，光伏发电量翻倍
+                    </div>
+                    <div class="instruction-item">
+                        • 地图中浅蓝色区域为海洋，风电发电量翻倍
+                    </div>
+                    <div class="instruction-item">
+                        • 负荷比 = 发电量/用电量，按子电网分别计算
+                    </div>
+                    <div class="instruction-item">
+                        • 负荷比<60%或>160%时，子电网消失
+                    </div>
+                    <div class="instruction-item">
+                        • 负荷比在60%-80%或150%-160%时，显示警告
+                    </div>
+                    <div class="instruction-item">
+                        • 蓄电池在负荷比>100%时充电
+                    </div>
+                    <div class="instruction-item">
+                        • 蓄电池在负荷比<100%时放电
+                    </div>
+                    <div class="instruction-item">
+                        • 智能终端可预测电网容量
+                    </div>
+                    <div class="instruction-item connection-rules">
+                        连接规则：
+                        • 发电站可连接变电站/蓄电池/发电站
+                        • 变电站可连接工厂/居民楼/智能终端/兵工厂/变电站
+                        • 蓄电池只能连发电站
+                        • 智能终端只能连变电站
+                    </div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="buildings-panel">
+                    <h3>建筑物</h3>
+                    <div class="building-item" draggable="true" data-type="powerplant-small">
+                        <span class="legend" style="background: #ffb4b4"></span>
+                        小型发电站 (100单位) - 200金币
+                    </div>
+                    <div class="building-item" draggable="true" data-type="powerplant-medium">
+                        <span class="legend" style="background: #ff6b6b"></span>
+                        中型发电站 (200单位) - 400金币
+                    </div>
+                    <div class="building-item" draggable="true" data-type="powerplant-nuclear">
+                        <span class="legend nuclear-legend"></span>
+                        核电站 (800单位) - 500金币
+                    </div>
+                    <div class="building-item" draggable="true" data-type="transformer-small">
+                        <span class="legend" style="background: #b4d4ff"></span>
+                        小型变电站 (300容量) - 150金币
+                    </div>
+                    <div class="building-item" draggable="true" data-type="transformer-medium">
+                        <span class="legend" style="background: #4dabf7"></span>
+                        中型变电站 (500容量) - 300金币
+                    </div>
+                    <div class="building-item" draggable="true" data-type="powerplant-solar">
+                        <span class="legend solar-legend"></span>
+                        光伏电站 (25-50单位) - 50金币
+                    </div>
+                    <div class="building-item" draggable="true" data-type="battery">
+                        <span class="legend battery-legend"></span>
+                        蓄电池 (500容量) - 200金币
+                    </div>
+                    <div class="building-item" draggable="true" data-type="terminal">
+                        <span class="legend terminal-legend"></span>
+                        智能终端 - 50金币
+                    </div>
+                    <div class="building-item" draggable="true" data-type="powerplant-wind">
+                        <span class="legend wind-legend"></span>
+                        风力发电站 (80-100单位) - 120金币
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 

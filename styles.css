@@ -1,0 +1,205 @@
+.game-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+    background: #1a1a1a; /* 深色背景 */
+}
+
+#gameCanvas {
+    width: calc(100vh - 40px); /* 保持正方形 */
+    height: calc(100vh - 40px);
+    border: 1px solid #333;
+    background: #000; /* 黑色画布背景 */
+}
+
+.side-panel {
+    width: 620px; /* 增加宽度以容纳两列 */
+    padding: 20px;
+    background: #2a2a2a; /* 深色侧边栏 */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #fff; /* 白色文字 */
+    display: flex; /* 使用flex布局 */
+    gap: 20px; /* 列间距 */
+}
+
+.left-column {
+    width: 300px;
+}
+
+.right-column {
+    width: 300px;
+}
+
+.resources {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #333; /* 深色资源面板 */
+    border-radius: 5px;
+    color: #fff;
+}
+
+.building-item {
+    padding: 10px;
+    margin: 5px 0;
+    background: #333;
+    border: 1px solid #444;
+    cursor: move;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.building-item:hover {
+    background: #444;
+}
+
+.legend {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+
+.nuclear-legend {
+    background: #ff4444;
+    position: relative;
+}
+
+.nuclear-legend:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: #ffde00;
+    border-radius: 50%;
+}
+
+.power-stats {
+    margin-top: 10px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.network-stats {
+    margin-bottom: 5px;
+    padding: 6px;
+    background: #222;
+    border-radius: 4px;
+    width: calc(50% - 5px); /* 减去gap的一半 */
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.network-stats div {
+    margin: 1px 0;
+    white-space: nowrap;
+}
+
+.network-stats .prediction {
+    color: #4dabf7;
+    font-style: italic;
+}
+
+.solar-legend {
+    background: linear-gradient(45deg, #9c27b0 50%, #ff6b6b 50%);
+    position: relative;
+}
+
+.battery-legend {
+    background: #444;
+    position: relative;
+}
+
+.battery-legend:after {
+    content: '⚡';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+}
+
+.game-instructions {
+    margin: 10px 0;
+    padding: 10px;
+    background: #333;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.game-instructions h3 {
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-size: 14px;
+}
+
+.instruction-item {
+    margin: 5px 0;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+.connection-rules {
+    margin-top: 10px !important;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+}
+
+.terminal-legend {
+    background: #333;
+    position: relative;
+}
+
+.terminal-legend:after {
+    content: '💻';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+}
+
+.paused-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 24px;
+    display: none;
+}
+
+.wind-legend {
+    background: #87ceeb;
+    position: relative;
+}
+
+.wind-legend:after {
+    content: '⚡';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.speed-button:hover {
+    background-color: #444 !important;
+}
+
+.speed-button:active {
+    background-color: #555 !important;
+} 
